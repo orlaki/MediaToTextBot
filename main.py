@@ -46,7 +46,7 @@ DOWNLOADS_DIR = os.environ.get("DOWNLOADS_DIR", "./downloads")
 os.makedirs(DOWNLOADS_DIR, exist_ok=True)
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
-USER_FREE_USAGE = int(os.environ.get("USER_FREE_USAGE", 2))
+USER_FREE_USAGE = int(os.environ.get("USER_FREE_USAGE", 1))
 
 def parse_keys(s):
     if not s:
@@ -265,9 +265,9 @@ async def is_user_in_channel(client, user_id: int) -> bool:
 async def send_join_prompt_to_target(client, uid: int, reply_target=None):
     clean_channel_username = REQUIRED_CHANNEL.replace("@", "")
     kb = InlineKeyboardMarkup([
-        [InlineKeyboardButton("🔗 Join Channel", url=f"https://t.me/{clean_channel_username}")]
+        [InlineKeyboardButton("🔗 Join", url=f"https://t.me/{clean_channel_username}")]
     ])
-    text = f"🚫 Please join our channel {REQUIRED_CHANNEL} to continue using this bot\n\nAfter joining, send your audio/video again"
+    text = f"First, join my channel 😜"
     try:
         if reply_target is not None:
             try:
@@ -302,13 +302,13 @@ async def ensure_joined(client, obj) -> bool:
     try:
         if isinstance(obj, CallbackQuery):
             try:
-                await obj.answer("🚫 First join the channel", show_alert=True)
+                await obj.answer("🚫 First join my channel", show_alert=True)
             except Exception:
                 pass
         await send_join_prompt_to_target(client, uid, reply_target)
     except Exception:
         try:
-            await client.send_message(uid, "🚫 Please join the channel to continue.")
+            await client.send_message(uid, "🚫 Please join  my channel to continue.")
         except Exception:
             pass
     return False
