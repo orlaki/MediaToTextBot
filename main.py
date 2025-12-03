@@ -353,7 +353,7 @@ async def is_user_in_channel(client, user_id: int) -> bool:
 async def send_join_prompt_to_target(client, uid: int, reply_target=None):
     clean_channel_username = REQUIRED_CHANNEL.replace("@", "")
     kb = InlineKeyboardMarkup([
-        [InlineKeyboardButton("Join", url=f"https://t.me/{clean_channel_username}")]
+        [InlineKeyboardButton("Click here join 💋", url=f"https://t.me/{clean_channel_username}")]
     ])
     text = "Join my channel, it's mandatory 🤡"
     try:
