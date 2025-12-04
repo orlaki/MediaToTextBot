@@ -351,7 +351,7 @@ WELCOME_MESSAGE = """👋 **Salaam!**
 
 HELP_MESSAGE = f"""/start - Show welcome message
 /help - This help message
-Send a voice/audio/video (up to {MAX_UPLOAD_MB}MB) to transcribe. any error or help ➡️ https://t.me/joinme35
+Send a voice/audio/video (up to {MAX_UPLOAD_MB}MB) to transcribe 
 """
 
 async def is_user_in_channel(client, user_id: int) -> bool:
@@ -648,7 +648,7 @@ async def handle_media(client, message: Message):
         if file_path and os.path.exists(file_path):
             os.remove(file_path)
     if not text or text.startswith("Error:"):
-        warning_text = text or "⚠️ Warning Make sure the voice is clear or speaking in the language you Choosed."
+        warning_text = text or "⚠️ Warning Make sure the voice is clear."
         await message.reply_text(warning_text, reply_to_message_id=message.id)
         return
     reply_msg_id = message.id
