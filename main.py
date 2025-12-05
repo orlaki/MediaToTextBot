@@ -214,7 +214,7 @@ def lang_cb(call):
         bot.edit_message_reply_markup(call.message.chat.id, call.message.message_id, reply_markup=None)
     except: pass
     _, code, lbl, origin = call.data.split("|")
-    process_text_action(call, origin, f"Translate to {lbl}", f"Translate this to {lbl}. No extra text.")
+    process_text_action(call, origin, f"Translate to {lbl}", f"Translate this text in to language {lbl}. No extra text ONLY return the translated text.")
 
 @bot.callback_query_handler(func=lambda c: c.data.startswith(('translate_menu|', 'summarize|')))
 def action_cb(call):
