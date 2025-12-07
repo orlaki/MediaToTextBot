@@ -22,7 +22,7 @@ GEMINI_MODEL = os.environ.get("GEMINI_MODEL", "gemini-2.5-flash")
 GEMINI_API_KEYS = os.environ.get("GEMINI_API_KEYS", DEFAULT_GEMINI_KEYS)
 REQUIRED_CHANNEL = os.environ.get("REQUIRED_CHANNEL", "")
 DOWNLOADS_DIR = os.environ.get("DOWNLOADS_DIR", "./downloads")
-ASSEMBLYAI_KEY = os.environ.get("ASSEMBLYAI_API_KEY", "")
+ASSEMBLYAI_KEY = os.environ.get("ASSEMBLYAI_API_KEY", "91f15c103dbd4b859466a29ee849e3ef")
 LLM_GATEWAY_MODEL = os.environ.get("LLM_GATEWAY_MODEL", GEMINI_MODEL)
 POLL_INTERVAL = float(os.environ.get("POLL_INTERVAL", "2"))
 
