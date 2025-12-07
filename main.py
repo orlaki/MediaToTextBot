@@ -244,8 +244,8 @@ def ensure_joined(message):
     except:
         pass
     clean = REQUIRED_CHANNEL.replace("@", "")
-    kb = InlineKeyboardMarkup([[InlineKeyboardButton("Click here Subscribe 💋", url=f"https://t.me/{clean}")]])
-    bot.reply_to(message, "First subscribe to my channel and come back 👍", reply_markup=kb)
+    kb = InlineKeyboardMarkup([[InlineKeyboardButton("Click here Join", url=f"https://t.me/{clean}")]])
+    bot.reply_to(message, "First Join my channel and come back 👍", reply_markup=kb)
     return False
 
 @bot.message_handler(commands=['start', 'help'])
@@ -334,7 +334,7 @@ def handle_media(message):
     if not media:
         return
     if getattr(media, 'file_size', 0) > MAX_UPLOAD_SIZE:
-        bot.reply_to(message, f"Send files larger than {MAX_UPLOAD_MB}MB to this bot @MediaToTextBot 😎")
+        bot.reply_to(message, f"Just Send me a file less than {MAX_UPLOAD_MB}MB 😎")
         return
     bot.send_chat_action(message.chat.id, 'typing')
     file_path = os.path.join(DOWNLOADS_DIR, f"temp_{message.id}_{media.file_unique_id}")
