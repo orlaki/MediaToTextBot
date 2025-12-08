@@ -8,3 +8,4 @@ tgcrypto
 python-dotenv
 dnspython
 fastapi
+pymongo
