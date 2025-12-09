@@ -9,3 +9,6 @@ python-dotenv
 dnspython
 fastapi
 pymongo
+fastapi
+uvicorn[standard]
+
