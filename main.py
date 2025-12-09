@@ -402,16 +402,18 @@ async def send_welcome(client, message):
         welcome_text = (
             "👋 Welcome back!\n"
             "• Send me audio, video, or voice notes\n"
-            "• I will transcribe them for you.\n"
-            "• You can use /set YOUR_KEY if you want to change your API key."
+            "• I will transcribe them for you"
         )
         await message.reply_text(welcome_text)
     else:
         user_awaiting_key[uid] = True
         welcome_text = (
-            "👋 Salaam! Welcome to SpeechBot.\n"
-            "To start, I need your **Gemini API Key**.\n\n"
-            "Please send your API key now as a text message."
+        "👋 Salaam!\n"
+        "• Send me\n"
+        "• voice message\n"
+        "• audio file\n"
+        "• video\n"
+        "• to transcribe for free"
         )
         await message.reply_text(welcome_text)
 
