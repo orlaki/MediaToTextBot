@@ -228,7 +228,7 @@ def send_welcome(message):
             "• audio file\n"
             "• video\n"
             "• to transcribe for free\n\n"
-            "Select the language spoken in your audio or video:🥳"
+            "Select the language spoken in your audio or video:"
         )
         kb = build_lang_keyboard("file")
         bot.reply_to(message, welcome_text, reply_markup=kb, parse_mode="Markdown")
@@ -258,7 +258,7 @@ def mode_cb(call):
 def lang_command(message):
     if ensure_joined(message):
         kb = build_lang_keyboard("file")
-        bot.reply_to(message, "okay Select the language spoken in your audio or video:", reply_markup=kb)
+        bot.reply_to(message, "Select the language spoken in your audio or video:", reply_markup=kb)
 
 @bot.callback_query_handler(func=lambda c: c.data.startswith('lang|'))
 def lang_cb(call):
