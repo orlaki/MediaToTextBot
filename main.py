@@ -141,7 +141,7 @@ def upload_and_transcribe_gemini(file_path: str, key: str) -> str:
         uploaded_name = up_resp.get("name", up_resp.get("file", {}).get("name"))
         uploaded_uri = up_resp.get("uri", up_resp.get("file", {}).get("uri"))
         if not uploaded_name: raise RuntimeError("Upload failed.")
-        prompt = "Transcribe the audio in this file. Automatically detect the language and provide a clean transcription. Do not add intro phrases."
+        prompt = "Transcribe this audio and provide a clean transcription. Do not add intro phrases."
         payload = {"contents": [{"parts": [{"fileData": {"mimeType": mime_type, "fileUri": uploaded_uri}}, {"text": prompt}]}]}
         data = gemini_api_call(f"models/{GEMINI_MODEL}:generateContent", payload, key, headers={"Content-Type": "application/json"})
         return data["candidates"][0]["content"]["parts"][0]["text"]
