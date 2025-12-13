@@ -187,7 +187,7 @@ def ensure_joined(message):
     except: pass
     clean = REQUIRED_CHANNEL.replace("@", "")
     kb = InlineKeyboardMarkup([[InlineKeyboardButton("🔗 Join", url=f"https://t.me/{clean}")]])
-    bot.reply_to(message, "First, join my channel 😜", reply_markup=kb)
+    bot.reply_to(message, "First, join my channel and come back 👍", reply_markup=kb)
     return False
 
 @bot.message_handler(func=lambda m: m.text is not None and m.text.strip().split()[0].startswith("AIz"))
