@@ -13,3 +13,8 @@ fastapi
 uvicorn[standard]
 pydub
 speech_recognition
+Flask
+pyTelegramBotAPI
+requests
+SpeechRecognition
+pydub
