@@ -17,3 +17,4 @@ pyTelegramBotAPI
 requests
 SpeechRecognition
 pydub
+google-genai
