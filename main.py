@@ -21,8 +21,8 @@ REQUEST_TIMEOUT_GEMINI = int(os.environ.get("REQUEST_TIMEOUT_GEMINI", "300"))
 MAX_UPLOAD_MB = int(os.environ.get("MAX_UPLOAD_MB", "100"))
 MAX_UPLOAD_SIZE = MAX_UPLOAD_MB * 1024 * 1024
 MAX_MESSAGE_CHUNK = 4095
-GEMINI_MODEL = os.environ.get("GEMINI_MODEL", "gemini-2.0-flash")
-GEMINI_FALLBACK_MODEL = os.environ.get("GEMINI_FALLBACK_MODEL", "gemini-2.0-flash-lite")
+GEMINI_MODEL = os.environ.get("GEMINI_MODEL", "gemini-2.5-flash-lite")
+GEMINI_FALLBACK_MODEL = os.environ.get("GEMINI_FALLBACK_MODEL", "gemini-2.5-flash")
 REQUIRED_CHANNEL = os.environ.get("REQUIRED_CHANNEL", "")
 DOWNLOADS_DIR = os.environ.get("DOWNLOADS_DIR", "./downloads")
 ADMIN_ID = int(os.environ.get("ADMIN_ID", "5240873494"))
@@ -290,7 +290,7 @@ async def handle_media(client, message):
     if not await ensure_joined(client, message): return
     media = message.voice or message.audio or message.video or message.document
     if not media or getattr(media, "file_size", 0) > MAX_UPLOAD_SIZE:
-        if media: await message.reply_text(f"Send me file less than {MAX_UPLOAD_MB}MB", quote=True)
+        if media: await message.reply_text(f"Send me file less than {MAX_UPLOAD_MB}MB 😎", quote=True)
         return
     user_key = get_user_key_db(message.from_user.id)
     if not user_key:
