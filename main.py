@@ -130,7 +130,7 @@ def upload_and_transcribe_gemini(file_path: str, key: str, uid: int) -> str:
     uploaded_file = None
     try:
         uploaded_file = client.files.upload(file=file_path)
-        prompt = "Transcribe this audio and provide a clean transcription. Do not add intro phrases."
+        prompt = "Transcribe this audio Write a text that is accurate and of high quality and does not look like raw ASR text. Do not add intro phrases."
         current_model = get_current_model(uid)
         response = client.models.generate_content(model=current_model, contents=[prompt, uploaded_file])
         return response.text
@@ -151,7 +151,7 @@ def ask_gemini(text, instruction, key, uid):
 
 def summarize_youtube_video(video_url, key, uid):
     client = genai.Client(api_key=key)
-    prompt = "✅"
+    prompt = "isoo koob video gaan laakiin kusoo qor qoraal ka luqda uu video ga ku had laayo"
     current_model = get_current_model(uid)
     response = client.models.generate_content(
         model=current_model,
