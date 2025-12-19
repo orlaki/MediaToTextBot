@@ -161,7 +161,7 @@ def summarize_youtube_video(video_url, key, uid):
 
 def build_action_keyboard(text_len):
     btns = []
-    if text_len > 500:
+    if text_len > 1500:
         btns.append([InlineKeyboardButton("Get Summarize", callback_data="summarize_menu|")])
     return InlineKeyboardMarkup(btns)
 
