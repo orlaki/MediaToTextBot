@@ -290,8 +290,8 @@ def send_welcome(message):
             "• voice message\n"
             "• audio file\n"
             "• video\n"
-            "• to transcribe using Gemini AI\n\n"
-            "Select the language spoken in your audio or video:"
+            "• to transcribe for free\n\n"
+            "This bot is not good. For best quality, use @MediaToTextBot"
         )
         kb = build_lang_keyboard("file")
         bot.reply_to(message, welcome_text, reply_markup=kb, parse_mode="Markdown")
