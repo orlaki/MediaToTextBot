@@ -191,11 +191,7 @@ def transcribe_media_gemini(file_url, mime_type, target_lang_label):
     file_content = requests.get(file_url, timeout=REQUEST_TIMEOUT).content
     b64_data = base64.b64encode(file_content).decode('utf-8')
     if target_lang_label:
-        prompt = f"""
-You are a professional transcription and translation system.
-Step 1: Detect the spoken language automatically.
-Step 2: Transcribe the audio accurately.
-Step 3: Translate the transcription into {target_lang_label}.
+        prompt = f"""Transcribe the audio accurately and translate to {target_lang_label}.
 Formatting rules:
 - Final output MUST be written ONLY in {target_lang_label}
 - Preserve the original meaning exactly
